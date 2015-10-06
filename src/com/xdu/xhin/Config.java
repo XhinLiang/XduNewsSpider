@@ -28,7 +28,7 @@ public class Config {
     public static final String VALUE_OS_NAME = "os.name";
 
 
-    public static final String PRINT_STARS = "*********************************************************\n";
+    public static final String PRINT_STARS = "*********************************************************";
     public static final String PRINT_SPACES = "                    ";
     public static final String PRINT_NEWLINE_SPACES = "    ";
     public static final String PRINT_CRLF = "\r\n";

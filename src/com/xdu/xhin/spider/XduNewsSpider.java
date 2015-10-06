@@ -24,6 +24,7 @@ public class XduNewsSpider {
 
     private static XduNewsSpider sXduNewsSpider;
 
+
     private XduNewsSpider() {
     }
 
@@ -49,6 +50,7 @@ public class XduNewsSpider {
         });
         executor.shutdown();
     }
+
 
     private void getList(String url, SpiderCallback spiderCallback) throws IOException {
         int id = 1;
@@ -96,17 +98,17 @@ public class XduNewsSpider {
 
         //写入标题
         bufferWritter.write(Config.PRINT_STARS);
+        bufferWritter.newLine();
         bufferWritter.write(Config.PRINT_SPACES + article.getElementsByTag(Config.NODE_HEAD).text());
-        bufferWritter.write(TextUtil.getInstance().newLine());
+        bufferWritter.newLine();
         bufferWritter.write(Config.PRINT_STARS);
-
         //写入正文,每行分段
         Elements paragraphs = article.getElementsByTag(Config.NODE_PARAGRAPH);
         for (Element paragraph : paragraphs) {
+            bufferWritter.newLine();
             bufferWritter.write(Config.PRINT_NEWLINE_SPACES + paragraph.text());
-            bufferWritter.write(TextUtil.getInstance().newLine());
         }
-        bufferWritter.write(TextUtil.getInstance().newLine());
+        bufferWritter.newLine();
         bufferWritter.close();
     }
 }
